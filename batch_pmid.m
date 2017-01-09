@@ -1,15 +1,19 @@
 %% refBatch
-
-clear all
+% clear all
 pmidListFileName=('pmid.txt');
 list=textread(pmidListFileName);
 citstr=[];
 for i=1:length(list)
     citList{i}=pmid2JNS(list(i));
-    pause(0)
+    pause(1)
     citstr=[citstr '\n' citList{i}];
 end
-%%
+
+%% Sort by ABC
+[hoge, idx] = sort(citList);
+citList = citList(idx);
+
+%% List export
 dateNow=clock;
 fileID = fopen(['_'...
     (num2str(dateNow(1))) (num2str(dateNow(2))) (num2str(dateNow(3)))...

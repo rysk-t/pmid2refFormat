@@ -3,17 +3,16 @@ function [Citation] = pmid2JNS(pmid)
 bufCell=pmid2medlineCell(pmid);
 %% JNS—p
 
-ROIcitation={'AU' 'DP' 'TI' 'TA' 'VI' 'IP' 'PG'}
+ROIcitation={'AU' 'DP' 'TI' 'TA' 'VI' 'IP' 'PG'};
 for i=1:length(ROIcitation)
-    eval(['Cell.' ROIcitation{i} '=strfind(bufCell, '''  ROIcitation{i} ''' )'])
-    eval([ROIcitation{i} '=' '[]'])
+    eval(['Cell.' ROIcitation{i} '=strfind(bufCell, '''  ROIcitation{i} ''' )']);
+    eval([ROIcitation{i} '=' '[]']);
 end
 Authors=[];
 for i=1:length(bufCell)
     if(Cell.AU{i,1}==1)
       Authors=[Authors ', ' bufCell{i,2}];
-    end
-    
+		end
     
     if(Cell.DP{i,1}==1)
         DP=bufCell{i,2}(1:4);

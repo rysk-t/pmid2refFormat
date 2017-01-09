@@ -1,6 +1,6 @@
 function [Cr] = pmid2medlineCell(pmid)
 %%
-medlineStr = urlread(['http://www.ncbi.nlm.nih.gov/pubmed/' num2str(pmid) '?dopt=MEDLINE']);
+medlineStr = urlread(['https://www.ncbi.nlm.nih.gov/pubmed/' num2str(pmid) '?dopt=MEDLINE']);
 %%
 % AuthorNum=length(regexp(medlineStr, '\nAU'));
 % for i=1:length(regexp(medlineStr, '\nAU'))
